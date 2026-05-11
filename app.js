@@ -27,6 +27,10 @@ $(document).ready(function () {
             if (page === "github.html") {
                 loadGithubInfo();
             }
+
+            if (page === "data.html") {
+                loadDataMahasiswa();
+            }
         });
     }
 
@@ -123,4 +127,45 @@ $(document).ready(function () {
             }
         });
     }
+
+        function loadDataMahasiswa() {
+            $("#dataMhs").html("<tr><td>Loading...</td></tr>");
+
+            $.ajax({
+                url: "https://mmc-clinic.com/dipa/api/mhs.php",
+                type: "GET",
+                dataType: "json",
+                success: function (res) {
+
+                    let data = res.data ? res.data : res;
+
+                    if (!data || data.length === 0) {
+                        $("#dataMhs").html("<tr><td>Tidak ada data</td></tr>");
+                        return;
+                    }
+
+                    let keys = Object.keys(data[0]);
+
+                    let head = "<tr>";
+                    keys.map(function (k) {
+                        head += "<th>" + k + "</th>";
+                    });
+                    head += "</tr>";
+                    $("#tableHead").html(head);
+
+                    let rows = data.map(function (item) {
+                        let cols = keys.map(function (k) {
+                            return "<td>" + item[k] + "</td>";
+                        }).join("");
+
+                        return "<tr>" + cols + "</tr>";
+                    }).join("");
+
+                    $("#dataMhs").html(rows);
+                },
+                error: function () {
+                    $("#dataMhs").html("<tr><td style='color:red;'>Gagal ambil data</td></tr>");
+                }
+            });
+        }
 });

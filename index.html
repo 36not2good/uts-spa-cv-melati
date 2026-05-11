@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -19,12 +19,64 @@
             <button data-page="about.html">About</button>
             <button data-page="contact.html">Contact</button>
             <button data-page="github.html">GitHub Info</button>
+            <button data-page="data.html">Data Mahasiswa</button>
         </div>
 
         <div id="content"></div>
     </div>
 
     <script src="app.js"></script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2563eb">
+
+    <title>CV Online Melati</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>CV Online</h1>
+
+        <div class="menu">
+            <button data-page="home.html">Home</button>
+            <button data-page="about.html">About</button>
+            <button data-page="contact.html">Contact</button>
+            <button data-page="github.html">GitHub Info</button>
+            <button data-page="data.html">Data Mahasiswa</button>
+        </div>
+
+        <div id="content"></div>
+    </div>
+
+    <script src="app.js"></script>
+
+    <!-- Register Service Worker -->
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("sw.js")
+                    .then(() => console.log("Service Worker Registered"))
+                    .catch((err) => console.log("Service Worker Failed", err));
+            });
+        }
+    </script>
+
 </body>
 
 </html>
