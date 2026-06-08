@@ -469,3 +469,55 @@ button:hover {
         font-size: 14px;
     }
 }
+
+.project-section{
+    margin-top:40px;
+}
+
+.project-section h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#1e40af;
+}
+
+.project-card{
+    background:white;
+    border:1px solid #dbeafe;
+    border-radius:20px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.05);
+}
+
+.project-card img{
+    width:100%;
+    max-width:500px;
+    border-radius:16px;
+    margin-bottom:20px;
+}
+
+.project-card h3{
+    color:#1e3a8a;
+    margin-bottom:15px;
+}
+
+.project-buttons{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.project-btn{
+    text-decoration:none;
+    padding:12px 20px;
+    background:#2563eb;
+    color:white;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.project-btn:hover{
+    background:#1d4ed8;
+}
